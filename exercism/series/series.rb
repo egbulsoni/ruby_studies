@@ -7,22 +7,15 @@
 # FrozenStringLiteral
 
 class Series
+  attr_reader :nums
+
   def initialize(nums)
     @nums = nums
   end
-  def slices(n)
-    raise ArgumentError, "Error" unless n <= @nums.length()
-    @final = []
-    @nums.split('').each_cons(n) do |subset|
-      @final.append(subset.join)
-    end
-    @final
+
+  def slices(num)
+    raise ArgumentError, 'Error' unless num <= nums
+
+    nums.each_char.each_cons(num).collect_concat(&:join)
   end
 end
-
-
-
-
-
-
-
